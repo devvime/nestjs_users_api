@@ -1,0 +1,42 @@
+### List all users
+GET {{baseURL}}/users
+Authorization: Bearer {{token}}
+
+### Read user by id
+GET {{baseURL}}/users/1
+Authorization: Bearer {{token}}
+
+### Create new user
+POST {{baseURL}}/users
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "name": "New User",
+  "email": "new@test.com",
+  "password": "1aA3@56"
+}
+
+### Update user
+PUT {{baseURL}}/users/1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "name": "New User Name",
+  "email": "new@test.com",
+  "password": "1aA3@56"
+}
+
+### Partial user update
+PATCH {{baseURL}}/users/1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "name": "New User Name"
+}
+
+### Delete user by id
+DELETE {{baseURL}}/users/1
+Authorization: Bearer {{token}}

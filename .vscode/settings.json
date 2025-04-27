@@ -1,0 +1,11 @@
+{
+  "rest-client.environmentVariables": {
+    "$shared": {
+      "baseURL": "http://localhost:3000",
+      "token": "seu_token_aqui"
+    },
+    "dev": {
+      "token": "seu_token_aqui"
+    }
+  }
+}
