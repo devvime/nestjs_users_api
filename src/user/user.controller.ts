@@ -13,6 +13,7 @@ import { CreateUserDTO } from './dto/create-user.dto';
 import { UpdateUserDTO } from './dto/update-user.dto';
 import { UpdatePartialUserDTO } from './dto/update-patch-user.dto';
 import UserService from './user.service';
+import { NotFoundError } from 'rxjs';
 
 @Controller('users')
 export class UserController {
@@ -37,26 +38,18 @@ export class UserController {
   }
 
   @Put(':id')
-  update(@Param() params: object, @Body() body: UpdateUserDTO) {
-    return {
-      method: 'PUT',
-      body,
-      params,
-    };
+  async update(@Param('id', ParseIntPipe) id: number, @Body() body: UpdateUserDTO) {
+    return this.userService.update(id, body);
   }
 
   @Patch(':id')
-  partialUpdate(@Param() params: object, @Body() body: UpdatePartialUserDTO) {
-    return {
-      method: 'PATCH',
-      body,
-      params,
-    };
+  async partialUpdate(@Param('id', ParseIntPipe) id: number, @Body() body: UpdatePartialUserDTO) {
+    return this.userService.updatePartial(id, body);
   }
 
   @Delete(':id')
-  destroy(@Param('id', ParseIntPipe) id: number) {
-    return { id };
+  async destroy(@Param('id', ParseIntPipe) id: number) {
+    return this.userService.destroy(id);
   }
 
 }

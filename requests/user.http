@@ -3,7 +3,7 @@ GET {{baseURL}}/users
 Authorization: Bearer {{token}}
 
 ### Read user by id
-GET {{baseURL}}/users/1
+GET {{baseURL}}/users/3
 Authorization: Bearer {{token}}
 
 ### Create new user
@@ -23,8 +23,8 @@ Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-  "name": "New User Name",
-  "email": "new@test.com",
+  "name": "Steve",
+  "email": "stave@test.com",
   "password": "1aA3@56"
 }
 
@@ -34,9 +34,9 @@ Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-  "name": "New User Name"
+  "name": "Steve"
 }
 
 ### Delete user by id
-DELETE {{baseURL}}/users/1
+DELETE {{baseURL}}/users/3
 Authorization: Bearer {{token}}
