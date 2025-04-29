@@ -12,22 +12,28 @@ import {
 import { CreateUserDTO } from './dto/create-user.dto';
 import { UpdateUserDTO } from './dto/update-user.dto';
 import { UpdatePartialUserDTO } from './dto/update-patch-user.dto';
+import UserService from './user.service';
 
 @Controller('users')
 export class UserController {
+
+  constructor(
+    private readonly userService: UserService
+  ) {}
+
   @Post()
-  create(@Body() { name, email, password }: CreateUserDTO) {
-    return { name, email, password };
+  async create(@Body() data: CreateUserDTO) {
+    return this.userService.create(data);
   }
 
   @Get()
-  list() {
-    return { users: [] };
+  async list() {
+    return this.userService.list();
   }
 
   @Get(':id')
-  show(@Param() param: object) {
-    return { user: {}, param };
+  async show(@Param('id', ParseIntPipe) id: number) {
+    return this.userService.show(id);
   }
 
   @Put(':id')
@@ -52,4 +58,5 @@ export class UserController {
   destroy(@Param('id', ParseIntPipe) id: number) {
     return { id };
   }
+
 }
