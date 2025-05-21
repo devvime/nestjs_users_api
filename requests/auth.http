@@ -1,13 +1,13 @@
 ### Login (captura o token)
-POST {{baseURL}}/api/login
+POST {{baseURL}}/auth/login
 Content-Type: application/json
 
 {
-  "email": "admin@teste.com",
-  "senha": "123456"
+  "email": "steve4@test.com",
+  "password": "1aA4@56"
 }
 
-> {%  
-    const resp = JSON.parse(response.body);
-    client.global.set("token", resp.token);
-%}
+# > {%  
+#     const resp = JSON.parse(response.body);
+#     client.global.set("token", resp.token);
+# %}

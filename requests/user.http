@@ -12,9 +12,9 @@ Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-  "name": "Steve3",
-  "email": "steve3@test.com",
-  "password": "1aA3@56"
+  "name": "Steve4",
+  "email": "steve4@test.com",
+  "password": "1aA4@56"
 }
 
 ### Update user
